@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="">
+	<head>
+		<style type=text/css> 
+			table,p,ul{	
+    	font-family: 微軟正黑體;}
+
+    	h1.text-center,#font{
+    	font-family: 微軟正黑體;
+    	
+    }
+
+		</style>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+<div class="container">
+  
+  <h1 class="text-center"><strong>美食菜單</strong></h1>
+  <h4 id="font"><ins>本餐廳共有{{ foods|length }}道菜</ins></h4>            
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th>名   稱</th>
+        <th>價   格</th>
+        <th>說   明</th>
+        <th>辣/不辣</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for food in foods %}
+      <tr >
+        <td>{{ food.name }}</td>
+        <td>{{ food.price }}</td>
+        <td>{{ food.comment }}</td>
+        <td>{% if food.is_spicy %} 辣 {% else %} 不辣 {% endif %} </td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+
+
+	</body>
+</html>
